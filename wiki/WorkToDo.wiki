@@ -1,0 +1,42 @@
+#summary A brief run down of work to be done
+#labels todo
+
+= Introduction =
+
+This is a non-binding list of things I would like to get done in this emulator, and a summary of the status of each new work item.
+
+
+= Emulation =
+
+General - Frame skipping, partial drawing
+        - state saving is broken -- fix it
+             - rewind feature 
+
+CPU timing - double check timing values in cpu definition XML
+
+PPU - fix splitscreen draw code
+    - PAL emulation
+    - 'out of process' rendering mode (port queueing + data offloaded to fragment shader in opengl)
+    - create fork for unsafe code
+          - videobuffer as fixed buffer, pass ptr to display
+          - ptr arithmetic in BumpScanline, FetchNextTile, GetNameTablePixel, GetSpritePixel
+
+APU - fix interrupts (broke when port queueing implemented)
+    - PCM channel
+    - allow shared buffer to be of arbitrary size, rather than 1 per frame
+    - unsafe blipper 
+
+Carts - 
+
+= Platform =
+
+
+Common - finish up debugger viewmodels, including fixing breakpoint support
+       - common opengl 'renderers'
+       - move to Windsor as DI container (abstract out DI functions)
+
+Gnomebulb - SDL port, video and audio 
+          - more binding types
+          - List Item 'templating' by resolving 'widgets' from DI container based on bound type, then packing into VBox
+
+Winbulb - reimpliment using common UI components
